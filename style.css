@@ -1,0 +1,1318 @@
+/* ==================================================
+   RESET
+================================================== */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+/* ==================================================
+   ROOT
+================================================== */
+
+:root {
+    --background: #0d0d12;
+
+    --surface:
+        rgba(255, 255, 255, 0.055);
+
+    --border:
+        rgba(255, 255, 255, 0.10);
+
+    --text: #f5f2ef;
+
+    --muted:
+        rgba(245, 242, 239, 0.58);
+
+    --soft:
+        #d9c4b5;
+
+    --accent:
+        #c8a99a;
+}
+
+
+/* ==================================================
+   BODY
+================================================== */
+
+html {
+    width: 100%;
+    min-height: 100%;
+}
+
+body {
+    min-height: 100vh;
+    min-height: 100svh;
+
+    font-family:
+        Inter,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+
+    background:
+        radial-gradient(
+            circle at 20% 15%,
+            rgba(117, 92, 103, 0.18),
+            transparent 30%
+        ),
+
+        radial-gradient(
+            circle at 80% 80%,
+            rgba(74, 84, 115, 0.18),
+            transparent 35%
+        ),
+
+        var(--background);
+
+    color: var(--text);
+
+    overflow: hidden;
+}
+
+
+/* ==================================================
+   BACKGROUND
+================================================== */
+
+.background {
+    position: fixed;
+    inset: 0;
+
+    pointer-events: none;
+
+    overflow: hidden;
+
+    z-index: 0;
+}
+
+
+.orb {
+    position: absolute;
+
+    border-radius: 50%;
+
+    filter: blur(100px);
+
+    opacity: 0.22;
+}
+
+
+.orb-one {
+    width: 360px;
+    height: 360px;
+
+    top: -150px;
+    left: -100px;
+
+    background: #805d68;
+}
+
+
+.orb-two {
+    width: 400px;
+    height: 400px;
+
+    right: -180px;
+    bottom: -130px;
+
+    background: #58627d;
+}
+
+
+/* ==================================================
+   APP
+================================================== */
+
+.app {
+    position: relative;
+
+    width: 100%;
+
+    min-height: 100vh;
+    min-height: 100svh;
+
+    z-index: 1;
+}
+
+
+/* ==================================================
+   SCREEN
+================================================== */
+
+.screen {
+    position: absolute;
+
+    inset: 0;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 30px;
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    transform: translateY(15px);
+
+    transition:
+        opacity 0.6s ease,
+        transform 0.6s ease;
+
+    overflow: hidden;
+}
+
+
+.screen.active {
+    opacity: 1;
+
+    pointer-events: auto;
+
+    transform: translateY(0);
+
+    z-index: 10;
+}
+
+
+/* ==================================================
+   CONTENT
+================================================== */
+
+.content {
+    width: min(
+        620px,
+        100%
+    );
+
+    text-align: center;
+}
+
+
+.eyebrow {
+    display: block;
+
+    margin-bottom: 16px;
+
+    color: var(--soft);
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+    letter-spacing: 4px;
+}
+
+
+h1 {
+    font-size:
+        clamp(42px, 8vw, 72px);
+
+    line-height: 1;
+
+    letter-spacing: -3px;
+
+    font-weight: 700;
+}
+
+
+.subtitle {
+    margin-top: 18px;
+
+    color: var(--muted);
+
+    font-size: 15px;
+}
+
+
+/* ==================================================
+   QUESTION
+================================================== */
+
+.question {
+    margin-top: 55px;
+}
+
+
+.question > p {
+    margin-bottom: 18px;
+
+    color:
+        rgba(
+            245,
+            242,
+            239,
+            0.75
+        );
+
+    font-size: 13px;
+}
+
+
+.mood-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 10px;
+}
+
+
+.mood {
+    min-height: 82px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 18px;
+
+    background:
+        rgba(
+            255,
+            255,
+            255,
+            0.045
+        );
+
+    color: var(--text);
+
+    cursor: pointer;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 7px;
+
+    transition:
+        transform 0.25s ease,
+        background 0.25s ease,
+        border 0.25s ease;
+}
+
+
+.mood:hover {
+    transform: translateY(-3px);
+
+    background:
+        rgba(
+            255,
+            255,
+            255,
+            0.085
+        );
+
+    border-color:
+        rgba(
+            217,
+            196,
+            181,
+            0.35
+        );
+}
+
+
+.mood span {
+    font-size: 21px;
+}
+
+
+.mood small {
+    color: var(--muted);
+
+    font-size: 11px;
+}
+
+
+.mood-wide {
+    grid-column:
+        1 / -1;
+
+    min-height: 65px;
+}
+
+
+/* ==================================================
+   MESSAGE
+================================================== */
+
+.message-content {
+    max-width: 650px;
+
+    text-align: center;
+}
+
+
+.message-icon {
+    margin-bottom: 25px;
+
+    color: var(--soft);
+
+    font-size: 28px;
+}
+
+
+.message-content h2 {
+    font-size:
+        clamp(32px, 6vw, 55px);
+
+    line-height: 1.05;
+
+    letter-spacing: -2px;
+}
+
+
+.message-content p {
+    width: min(
+        470px,
+        100%
+    );
+
+    margin:
+        24px auto 35px;
+
+    color: var(--muted);
+
+    font-size: 15px;
+
+    line-height: 1.8;
+}
+
+
+/* ==================================================
+   BUTTONS
+================================================== */
+
+.primary-button {
+    display: inline-flex;
+
+    flex-direction: row;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 25px;
+
+    width: auto;
+
+    min-width: 200px;
+
+    min-height: 52px;
+
+    padding:
+        14px 22px;
+
+    border: none;
+
+    border-radius: 13px;
+
+    background:
+        var(--soft);
+
+    color: #211b1a;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    line-height: 1;
+
+    white-space: nowrap;
+
+    word-break: keep-all;
+
+    overflow-wrap: normal;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+
+.primary-button:hover {
+    transform:
+        translateY(-2px);
+
+    box-shadow:
+        0 12px 35px
+        rgba(
+            217,
+            196,
+            181,
+            0.18
+        );
+}
+
+
+.secondary-button {
+    padding:
+        12px 20px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 12px;
+
+    background:
+        rgba(
+            255,
+            255,
+            255,
+            0.05
+        );
+
+    color: var(--text);
+
+    cursor: pointer;
+
+    font-size: 12px;
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease;
+}
+
+
+.secondary-button:hover {
+    background:
+        rgba(
+            255,
+            255,
+            255,
+            0.09
+        );
+
+    transform:
+        translateY(-2px);
+}
+
+
+.text-button {
+    margin-top: 35px;
+
+    border: none;
+
+    background: none;
+
+    color:
+        rgba(
+            245,
+            242,
+            239,
+            0.45
+        );
+
+    cursor: pointer;
+
+    font-size: 11px;
+}
+
+
+.text-button:hover {
+    color: white;
+}
+
+
+/* ==================================================
+   MESSAGE ACTIONS
+================================================== */
+
+.message-actions {
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 14px;
+}
+
+
+.back-button {
+    margin-top: 0;
+
+    padding:
+        6px 10px;
+
+    color:
+        rgba(
+            245,
+            242,
+            239,
+            0.42
+        );
+
+    font-size: 11px;
+}
+
+
+.back-button:hover {
+    color: var(--text);
+}
+
+
+/* ==================================================
+   CAMERA
+================================================== */
+
+.camera-content {
+    width: min(
+        700px,
+        100%
+    );
+
+    text-align: center;
+}
+
+
+.camera-heading h2 {
+    font-size:
+        clamp(27px, 5vw, 42px);
+
+    letter-spacing: -1.5px;
+}
+
+
+.camera-heading p {
+    margin-top: 8px;
+
+    color: var(--muted);
+
+    font-size: 13px;
+}
+
+
+.camera-frame {
+    position: relative;
+
+    width: min(
+        560px,
+        100%
+    );
+
+    aspect-ratio: 4 / 3;
+
+    margin:
+        30px auto 18px;
+
+    overflow: hidden;
+
+    border-radius: 24px;
+
+    border:
+        1px solid
+        rgba(
+            255,
+            255,
+            255,
+            0.12
+        );
+
+    background: #111;
+
+    box-shadow:
+        0 25px 80px
+        rgba(
+            0,
+            0,
+            0,
+            0.35
+        );
+}
+
+
+/*
+   IMPORTANT:
+
+   Camera MUST NOT be mirrored.
+
+   No scaleX(-1).
+*/
+
+#camera {
+    width: 100%;
+
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+
+    transform: scaleX(1) !important;
+}
+
+
+/* ==================================================
+   CAMERA OVERLAY
+================================================== */
+
+.camera-overlay {
+    position: absolute;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    z-index: 2;
+}
+
+
+.corner {
+    position: absolute;
+
+    width: 35px;
+
+    height: 35px;
+
+    border-color:
+        rgba(
+            255,
+            255,
+            255,
+            0.45
+        );
+}
+
+
+.top-left {
+    top: 18px;
+
+    left: 18px;
+
+    border-top: 1px solid;
+
+    border-left: 1px solid;
+}
+
+
+.top-right {
+    top: 18px;
+
+    right: 18px;
+
+    border-top: 1px solid;
+
+    border-right: 1px solid;
+}
+
+
+.bottom-left {
+    bottom: 18px;
+
+    left: 18px;
+
+    border-bottom: 1px solid;
+
+    border-left: 1px solid;
+}
+
+
+.bottom-right {
+    bottom: 18px;
+
+    right: 18px;
+
+    border-bottom: 1px solid;
+
+    border-right: 1px solid;
+}
+
+
+.camera-note {
+    position: absolute;
+
+    left: 20px;
+
+    bottom: 18px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    padding:
+        7px 10px;
+
+    border-radius: 20px;
+
+    background:
+        rgba(
+            0,
+            0,
+            0,
+            0.45
+        );
+
+    backdrop-filter: blur(8px);
+
+    font-size: 9px;
+
+    color:
+        rgba(
+            255,
+            255,
+            255,
+            0.7
+        );
+}
+
+
+.camera-dot {
+    width: 5px;
+
+    height: 5px;
+
+    border-radius: 50%;
+
+    background: #d6b7a7;
+}
+
+
+/* ==================================================
+   CAMERA MESSAGE
+================================================== */
+
+.camera-message {
+    width: min(
+        440px,
+        100%
+    );
+
+    margin:
+        0 auto 25px;
+
+    color: var(--muted);
+
+    font-size: 12px;
+
+    line-height: 1.8;
+}
+
+
+/* ==================================================
+   BREATHING
+================================================== */
+
+.breathing {
+    display: flex;
+
+    justify-content: center;
+
+    margin-bottom: 25px;
+}
+
+
+.breathing-circle {
+    width: 62px;
+
+    height: 62px;
+
+    display: grid;
+
+    place-items: center;
+
+    border-radius: 50%;
+
+    border:
+        1px solid
+        rgba(
+            217,
+            196,
+            181,
+            0.25
+        );
+
+    background:
+        rgba(
+            217,
+            196,
+            181,
+            0.04
+        );
+
+    animation:
+        breathe 5s ease-in-out infinite;
+}
+
+
+.breathing-circle span {
+    color:
+        rgba(
+            245,
+            242,
+            239,
+            0.5
+        );
+
+    font-size: 8px;
+}
+
+
+@keyframes breathe {
+
+    0%,
+    100% {
+
+        transform:
+            scale(0.9);
+
+        opacity: 0.65;
+    }
+
+    50% {
+
+        transform:
+            scale(1.18);
+
+        opacity: 1;
+    }
+
+}
+
+
+/* ==================================================
+   END SCREEN
+================================================== */
+
+.end-icon {
+    margin-bottom: 25px;
+
+    font-size: 32px;
+
+    color: var(--soft);
+}
+
+
+.end-content h2 {
+    font-size:
+        clamp(30px, 6vw, 50px);
+
+    line-height: 1.08;
+
+    letter-spacing: -2px;
+}
+
+
+.end-content p {
+    width: min(
+        460px,
+        100%
+    );
+
+    margin:
+        25px auto;
+
+    color: var(--muted);
+
+    font-size: 14px;
+
+    line-height: 1.8;
+}
+
+
+.end-line {
+    width: 35px;
+
+    height: 1px;
+
+    margin:
+        30px auto;
+
+    background:
+        rgba(
+            217,
+            196,
+            181,
+            0.35
+        );
+}
+
+
+.end-content small {
+    color:
+        rgba(
+            245,
+            242,
+            239,
+            0.42
+        );
+
+    font-size: 10px;
+}
+
+
+/* ==================================================
+   FOOTER
+================================================== */
+
+.site-footer {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 14px;
+
+    width: 100%;
+    padding: 0 20px;
+
+    text-align: center;
+
+    color: rgba(255, 255, 255, 0.32);
+    font-size: 11px;
+    line-height: 1.4;
+    letter-spacing: 0.04em;
+
+    z-index: 99999;
+
+    pointer-events: none;
+}
+
+.site-footer::before {
+    content: "";
+
+    display: block;
+
+    width: 40px;
+    height: 1px;
+
+    margin: 0 auto 9px;
+
+    background: rgba(255, 255, 255, 0.12);
+}
+
+
+/* ==================================================
+   MOBILE
+================================================== */
+
+@media (max-width: 600px) {
+
+    body {
+        overflow: hidden;
+    }
+
+
+    .screen {
+        padding:
+            20px;
+    }
+
+
+    h1 {
+        font-size:
+            clamp(
+                38px,
+                11vw,
+                52px
+            );
+
+        letter-spacing: -2px;
+
+        line-height: 1.02;
+    }
+
+
+    .subtitle {
+        font-size: 14px;
+    }
+
+
+    .question {
+        margin-top: 40px;
+    }
+
+
+    .mood-grid {
+        grid-template-columns:
+            repeat(2, 1fr);
+
+        gap: 9px;
+    }
+
+
+    .mood {
+        min-height: 78px;
+
+        border-radius: 16px;
+    }
+
+
+    .mood-wide {
+        grid-column:
+            1 / -1;
+
+        min-height: 62px;
+    }
+
+
+    .message-content {
+        width: 100%;
+
+        max-width: 100%;
+    }
+
+
+    .message-content h2 {
+        font-size:
+            clamp(
+                30px,
+                8vw,
+                42px
+            );
+
+        line-height: 1.08;
+
+        letter-spacing: -1.5px;
+    }
+
+
+    .message-content p {
+        width: 100%;
+
+        margin:
+            20px auto 28px;
+
+        font-size: 14px;
+
+        line-height: 1.7;
+    }
+
+    /* ==================================================
+   FINAL MOBILE BUTTON FIX
+================================================== */
+
+@media (max-width: 600px) {
+
+    #breakButton {
+        width: 220px !important;
+        min-width: 220px !important;
+        max-width: 220px !important;
+
+        height: 52px !important;
+
+        display: flex !important;
+        flex-direction: row !important;
+
+        align-items: center !important;
+        justify-content: center !important;
+
+        flex-wrap: nowrap !important;
+
+        gap: 12px !important;
+
+        white-space: nowrap !important;
+    }
+
+    #breakButton span:first-child {
+        display: inline-block !important;
+
+        width: auto !important;
+        min-width: max-content !important;
+
+        white-space: nowrap !important;
+        word-break: keep-all !important;
+        overflow-wrap: normal !important;
+
+        flex: 0 0 auto !important;
+    }
+
+    #breakButton span:last-child {
+        flex: 0 0 auto !important;
+        white-space: nowrap !important;
+    }
+}
+
+    /* ==============================================
+       TAKE A LITTLE BREAK
+    ============================================== */
+
+    #breakButton,
+    .primary-button {
+        display: inline-flex !important;
+
+        flex-direction: row !important;
+
+        align-items: center !important;
+
+        justify-content: center !important;
+
+        width: 205px !important;
+
+        min-width: 205px !important;
+
+        max-width: 205px !important;
+
+        height: 52px !important;
+
+        min-height: 52px !important;
+
+        max-height: 52px !important;
+
+        padding:
+            0 18px !important;
+
+        gap: 14px !important;
+
+        font-size: 13px !important;
+
+        line-height: 1 !important;
+
+        white-space: nowrap !important;
+
+        word-break: keep-all !important;
+
+        overflow-wrap: normal !important;
+
+        border-radius: 14px !important;
+    }
+
+
+    /* ==============================================
+       CAMERA SCREEN
+    ============================================== */
+
+    #cameraScreen {
+        padding:
+            24px 18px 32px;
+
+        min-height: 100svh;
+
+        box-sizing: border-box;
+
+        align-items: flex-start;
+
+        justify-content: flex-start;
+
+        overflow-y: auto;
+
+        overflow-x: hidden;
+    }
+
+
+    #cameraScreen .camera-content {
+        width: 100%;
+
+        padding-bottom: 60px;
+    }
+
+
+    #cameraScreen h1 {
+        font-size: 2rem;
+
+        line-height: 1.1;
+
+        margin-bottom: 8px;
+    }
+
+
+    #cameraScreen .camera-subtitle {
+        font-size: 1rem;
+
+        margin-bottom: 20px;
+    }
+
+
+    .camera-heading h2 {
+        font-size:
+            clamp(
+                28px,
+                8vw,
+                38px
+            );
+
+        line-height: 1.1;
+    }
+
+
+    .camera-heading p {
+        font-size: 12px;
+    }
+
+
+    .camera-frame {
+        width: 100%;
+
+        aspect-ratio: 3 / 4;
+
+        margin:
+            25px auto 18px;
+
+        border-radius: 20px;
+    }
+
+
+    #camera {
+        width: 100%;
+
+        height: 100%;
+
+        aspect-ratio: 3 / 4;
+
+        object-fit: cover;
+
+        transform:
+            scaleX(1) !important;
+    }
+
+
+    #cameraMessage,
+    .camera-message {
+        width: 100%;
+
+        margin:
+            16px 0 20px;
+
+        font-size: 0.95rem;
+
+        line-height: 1.5;
+    }
+
+
+
+    #doneButton {
+        display: inline-flex;
+
+        margin:
+            10px auto 30px;
+    }
+
+
+    /* ==============================================
+       FOOTER MOBILE
+    ============================================== */
+
+    footer,
+    .site-footer {
+        bottom: 10px !important;
+
+        padding:
+            0 16px !important;
+
+        font-size: 10px !important;
+    }
+
+
+    footer::before,
+    .site-footer::before {
+        width: 32px;
+
+        margin-bottom: 7px;
+    }
+
+}

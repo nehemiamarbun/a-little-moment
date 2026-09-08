@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>A Little Moment</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+</head>
+
+<body>
+
+    <!-- Ambient background -->
+    <div class="background">
+        <div class="orb orb-one"></div>
+        <div class="orb orb-two"></div>
+        <div class="stars"></div>
+    </div>
+
+
+    <!-- =========================
+         MAIN
+    ========================== -->
+
+    <main class="app">
+
+        <!-- INTRO -->
+        <section
+            id="introScreen"
+            class="screen active"
+        >
+
+            <div class="content">
+
+                <span class="eyebrow">
+                    A LITTLE MOMENT
+                </span>
+
+                <h1>
+                    Hi, Vanessa.
+                </h1>
+
+                <p class="subtitle">
+                    You made it through another day.
+                </p>
+
+                <div class="question">
+
+                    <p>
+                        How was your day?
+                    </p>
+
+                    <div class="mood-grid">
+
+                        <button
+                            class="mood"
+                            data-mood="good"
+                        >
+                            
+                            <small>Good</small>
+                        </button>
+
+                        <button
+                            class="mood"
+                            data-mood="calm"
+                        >
+                            
+                            <small>Pretty good</small>
+                        </button>
+
+                        <button
+                            class="mood"
+                            data-mood="tired"
+                        >
+                            
+                            <small>Tired</small>
+                        </button>
+
+                        <button
+                            class="mood"
+                            data-mood="exhausted"
+                        >
+                           
+                            <small>Exhausted</small>
+                        </button>
+
+                        <button
+                            class="mood"
+                            data-mood="happy"
+                        >
+                            
+                            <small>Happy</small>
+                        </button>
+
+                        <button
+                            class="mood"
+                            data-mood="okay"
+                        >
+                            
+                            <small>Just okay</small>
+                        </button>
+
+                        <button
+                            class="mood mood-wide"
+                            data-mood="dontask"
+                        >
+                            
+                            <small>Don't ask.</small>
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- MESSAGE -->
+        <section
+            id="messageScreen"
+            class="screen"
+        >
+
+            <div class="content message-content">
+
+                <span
+                    id="messageEyebrow"
+                    class="eyebrow"
+                >
+                    JUST A LITTLE REMINDER
+                </span>
+
+                <div class="message-icon">
+                    ✦
+                </div>
+
+                <h2 id="messageTitle">
+                    You did well today.
+                </h2>
+
+                <p id="messageText">
+                    You don't have to carry today anymore.
+                    It's okay to rest.
+                </p>
+
+                <div class="message-actions">
+
+    <button
+        id="backButton"
+        class="text-button back-button"
+    >
+        ← Back
+    </button>
+
+    <button
+        id="breakButton"
+        class="primary-button"
+    >
+        <span>Take a little break</span>
+        <span>→</span>
+    </button>
+
+</div>
+
+            </div>
+
+        </section>
+
+
+        <!-- CAMERA -->
+        <section
+            id="cameraScreen"
+            class="screen camera-screen"
+        >
+
+            <div class="camera-content">
+
+                <div class="camera-heading">
+
+                    <span class="eyebrow">
+                        JUST FOR A MOMENT
+                    </span>
+
+                    <h2>
+                        No need to do anything.
+                    </h2>
+
+                    <p>
+                        Just take a breath.
+                    </p>
+
+                </div>
+
+
+                <div class="camera-frame">
+
+                    <video
+                        id="camera"
+                        autoplay
+                        muted
+                        playsinline
+                    ></video>
+
+                    <div class="camera-overlay">
+
+                        <div class="corner top-left"></div>
+                        <div class="corner top-right"></div>
+                        <div class="corner bottom-left"></div>
+                        <div class="corner bottom-right"></div>
+
+                        <div class="camera-note">
+                            <span class="camera-dot"></span>
+                            just you
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <p
+                    id="cameraMessage"
+                    class="camera-message"
+                >
+                    You don't have to smile.
+                    You don't have to pose.
+                    Just be here for a little while.
+                </p>
+
+
+                <div class="breathing">
+
+                    <div class="breathing-circle">
+                        <span>just breathe</span>
+                    </div>
+
+                </div>
+
+
+                <button
+                    id="doneButton"
+                    class="secondary-button"
+                >
+                    I'm feeling better
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- END -->
+        <section
+            id="endScreen"
+            class="screen"
+        >
+
+            <div class="content end-content">
+
+                <div class="end-icon">
+                    ☾
+                </div>
+
+                <span class="eyebrow">
+                    THAT'S ENOUGH FOR TODAY
+                </span>
+
+                <h2>
+                    You did something good today.
+                </h2>
+
+                <p>
+                    You showed up.
+                    You made it through.
+                    And now you get to rest.
+                </p>
+
+                <div class="end-line"></div>
+
+                <small>
+                    Take care of yourself, okay?
+                </small>
+
+                <button
+                    id="restartButton"
+                    class="text-button"
+                >
+                    Start over
+                </button>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- MUSIC -->
+    <audio
+        id="music"
+        loop
+        preload="auto"
+    >
+        <source
+            src="assets/music.mp3"
+            type="audio/mpeg"
+        >
+    </audio>
+
+<footer class="site-footer">
+    Made with care by Nehemia · 2026
+</footer>
+
+
+    <script src="app.js"></script>
+    
+
+</body>
+</html>
