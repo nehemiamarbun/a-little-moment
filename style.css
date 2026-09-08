@@ -14,24 +14,24 @@
 ================================================== */
 
 :root {
-    --background: #0d0d12;
+    --background: #14131a;
 
     --surface:
-        rgba(255, 255, 255, 0.055);
+        rgba(255, 255, 255, 0.065);
 
     --border:
-        rgba(255, 255, 255, 0.10);
+        rgba(255, 255, 255, 0.12);
 
-    --text: #f5f2ef;
+    --text: #f7f3ef;
 
     --muted:
-        rgba(245, 242, 239, 0.58);
+        rgba(247, 243, 239, 0.62);
 
     --soft:
-        #d9c4b5;
+        #e1c7b7;
 
     --accent:
-        #c8a99a;
+        #d2afa0;
 }
 
 
@@ -57,15 +57,21 @@ body {
 
     background:
         radial-gradient(
-            circle at 20% 15%,
-            rgba(117, 92, 103, 0.18),
-            transparent 30%
+            circle at 15% 20%,
+            rgba(128, 88, 108, 0.24),
+            transparent 32%
         ),
 
         radial-gradient(
-            circle at 80% 80%,
-            rgba(74, 84, 115, 0.18),
-            transparent 35%
+            circle at 85% 75%,
+            rgba(76, 88, 130, 0.22),
+            transparent 38%
+        ),
+
+        radial-gradient(
+            circle at 50% 100%,
+            rgba(143, 103, 87, 0.10),
+            transparent 42%
         ),
 
         var(--background);
